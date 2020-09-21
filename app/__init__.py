@@ -24,7 +24,7 @@ if not app.debug:
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
 
-    app.logger.serLevel(logging.INFO)
+    app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
 
 from app import routes, models, errors
