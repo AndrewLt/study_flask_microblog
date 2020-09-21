@@ -100,7 +100,7 @@ def edit_profile():
         current_user.about_me = form.about_me.data
         db.session.commit()
         flash('Your changes have been saved.')
-        return redirect(url_for('edit_profile'))
+        return redirect(url_for('user', username=current_user.username))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
@@ -108,10 +108,10 @@ def edit_profile():
                            form=form)
 
 
-@app.route('/follow/<username>')
+@app.route('/follow/<username>', methods=['GET', 'POST'])
 @login_required
 def follow(username):
-    user = User.query.filter_by(username=username)
+    user = User.query.filter_by(username=username).first()
     if user is None:
         flash(f'User {username} not found.')
         return redirect(url_for('index'))
@@ -124,7 +124,7 @@ def follow(username):
     return redirect(url_for('user', username=username))
 
 
-@app.route('/unfollow/<username>')
+@app.route('/unfollow/<username>', methods=['GET', 'POST'])
 @login_required
 def unfollow(username):
     user = User.query.filter_by(username=username).first()
