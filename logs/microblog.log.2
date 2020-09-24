@@ -1,17 +1,4 @@
-2020-09-21 17:27:19,692 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 17:27:37,475 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 17:27:58,810 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 17:28:08,820 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:04:46,000 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:05:33,736 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:08:16,361 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:08:30,713 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:09:31,353 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:11:37,501 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:24:51,222 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:25:01,767 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:26:40,710 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:26:59,068 ERROR: Exception on /follow/Kenedy [GET] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
+2020-09-22 11:03:27,803 ERROR: Exception on / [GET] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -27,14 +14,29 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 121, in follow
-    current_user.follow(user)
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\models.py", line 46, in follow
-    if not self.is_following(user):
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\models.py", line 55, in is_following
-    followers.c.followed_id == user.id).count() > 0
-AttributeError: 'BaseQuery' object has no attribute 'id'
-2020-09-21 18:29:17,644 ERROR: Exception on /follow/Kenedy [GET] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
+  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 40, in index
+    return render_template("index.html", title='Home Page', form=form, posts=posts)
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\templates\base.html", line 30, in top-level template code
+    {% block content %}{% endblock %}
+  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\templates\index.html", line 6, in block "content"
+    {{ from.hidden_tag() }}
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\jinja2\environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'from' is undefined
+2020-09-22 11:03:47,943 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
+2020-09-22 11:04:04,849 ERROR: Exception on / [POST] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -50,15 +52,12 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 121, in follow
-    current_user.follow(user)
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\models.py", line 46, in follow
-    if not self.is_following(user):
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\models.py", line 55, in is_following
-    followers.c.followed_id == user.id).count() > 0
-AttributeError: 'BaseQuery' object has no attribute 'id'
-2020-09-21 18:41:45,555 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:41:46,790 ERROR: Exception on /follow/Kenedy [GET] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
+  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 29, in index
+    return redirect(url_for(index))
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\helpers.py", line 318, in url_for
+    if endpoint[:1] == ".":
+TypeError: 'function' object is not subscriptable
+2020-09-22 11:04:30,697 ERROR: Exception on / [POST] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -74,15 +73,14 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 121, in follow
-    current_user.follow(user)
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\models.py", line 44, in follow
-    if not self.is_following(user):
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\models.py", line 53, in is_following
-    followers.c.followed_id == user.id).count() > 0
-AttributeError: 'BaseQuery' object has no attribute 'id'
-2020-09-21 18:44:20,757 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
-2020-09-21 18:44:21,197 ERROR: Exception on /follow/Kenedy [GET] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
+  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 29, in index
+    return redirect(url_for('index'))
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\helpers.py", line 318, in url_for
+    if endpoint[:1] == ".":
+TypeError: 'function' object is not subscriptable
+2020-09-22 11:04:39,255 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
+2020-09-22 22:02:44,582 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
+2020-09-22 22:02:53,970 ERROR: Exception on / [GET] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -98,11 +96,30 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 121, in follow
-    current_user.follow(user)
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\models.py", line 44, in follow
-    if not self.is_following(user):
-  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\models.py", line 53, in is_following
-    followers.c.followed_id == user.id).count() > 0
-AttributeError: 'BaseQuery' object has no attribute 'id'
-2020-09-21 18:45:42,422 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
+  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 30, in index
+    posts = current_user.followed_post().all()
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'User' object has no attribute 'followed_post'
+2020-09-22 22:03:32,261 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
+2020-09-22 22:03:42,779 ERROR: Exception on /explore [GET] [in d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "d:\dev\dev\anyprojects\study_flask_microblog\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\DEV\Dev\AnyProjects\study_flask_microblog\app\routes.py", line 137, in explore
+    return render_template('index.html', title='Explore', posts=posts)
+NameError: name 'posts' is not defined
+2020-09-22 22:03:59,508 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
+2020-09-22 22:04:52,566 INFO: Microblog startup [in D:\DEV\Dev\AnyProjects\study_flask_microblog\app\__init__.py:28]
