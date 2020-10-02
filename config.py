@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config(object):
@@ -17,3 +20,4 @@ class Config(object):
     MAIL_PASSWORD = '212'  # os.environ.get('MAIL_PASSWORD')
     ADMINS = ['admin-andrew@example.com']
     LANGUAGES = ['en', 'uk']
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL') or 'http://localhost:9200/'

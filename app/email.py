@@ -1,7 +1,7 @@
 from threading import Thread
 from flask import render_template
 #from flask_mail import Message
-from app import app
+from flask import current_app
 import requests
 
 """Test module. The module send jwt token to my Telegram account"""
@@ -16,8 +16,8 @@ def send_async_email(app, msg):
 def send_email(subject, sender, recipients, text_body, html_body):
     msg = f'<b>{subject}</b>\nFrom: {sender}\n' \
           f'To: {recipients}\n\n{text_body}\n{html_body}'
-    token = app.config['TELEGRAM_TOKEN']
-    admin_chat_id = app.config['TELEGRAM_ADMIN_CHAT_ID']
+    token = current_app.config['TELEGRAM_TOKEN']
+    admin_chat_id = current_app.config['TELEGRAM_ADMIN_CHAT_ID']
     requests.get(f'https://api.telegram.org/bot{token}/'
                  f'sendMessage?chat_id={admin_chat_id}&text={msg}&parse_mode=HTML')
     #Thread(target=send_async_email, args=(app, msg)).start()
@@ -26,7 +26,7 @@ def send_email(subject, sender, recipients, text_body, html_body):
 def send_password_reset_email(user):
     token = user.get_reset_password_token()
     send_email('[Microblog] Reset Your Password',
-               sender=app.config['ADMINS'][0],
+               sender=current_app.config['ADMINS'][0],
                recipients=[user.email],
                text_body=render_template('email/reset_password.txt',
                                          user=user, token=token),
