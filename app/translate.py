@@ -9,7 +9,7 @@ def translate(text, source_language, dest_language):
     payload = f"source={source_language}&q={text}&target={dest_language}"
     headers = {
         'x-rapidapi-host': "google-translate1.p.rapidapi.com",
-        'x-rapidapi-key': "8970bcb45fmshb722248cb8bf35bp1ee418jsne692b3f05afb",
+        'x-rapidapi-key': "8970bcb45fmshb722248cb8bf35bp1ee418jsne692b3f05aae",
         'accept-encoding': "application/gzip",
         'content-type': "application/x-www-form-urlencoded"
     }
